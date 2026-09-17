@@ -1,6 +1,6 @@
 #!name=Apple WLOC 定位修改
 #!desc=修改 Apple 网络定位返回坐标(经纬度+精度+海拔) | 选点页面: 请使用自建 wloc-locator Worker
-#!icon=https://raw.githubusercontent.com/admin0330/wloc-locator/refs/heads/main/wloc.jpg
+#!icon=https://cdn.jsdelivr.net/gh/admin0330/wloc-locator@main/wloc.jpg
 #!author=Yu9191 Rewrite
 #!homepage=https://github.com/admin0330/wloc-locator
 
@@ -12,8 +12,8 @@ altitude = input, "15", tag=海拔(米,留空=不修改,网页保存值优先)
 logLevel = select, "info", "off", "error", "warn", "debug", "all", tag=日志级别
 
 [Script]
-http-response ^https?:\/\/gs-loc(-cn)?\.apple\.com\/clls\/wloc script-path=https://raw.githubusercontent.com/admin0330/wloc-locator/refs/heads/main/dist/wloc.js, requires-body=true, binary-body-mode=true, timeout=30, tag=Apple WLOC, argument=[{longitude},{latitude},{accuracy},{altitude},{logLevel}]
-http-request ^https?:\/\/gs-loc(-cn)?\.apple\.com\/wloc-settings\/save script-path=https://raw.githubusercontent.com/admin0330/wloc-locator/refs/heads/main/dist/wloc-settings.js, timeout=10, tag=WLOC Settings
+http-response ^https?:\/\/gs-loc(-cn)?\.apple\.com\/clls\/wloc script-path=https://cdn.jsdelivr.net/gh/admin0330/wloc-locator@main/dist/wloc.js, requires-body=true, binary-body-mode=true, timeout=30, tag=Apple WLOC, argument=[{longitude},{latitude},{accuracy},{altitude},{logLevel}]
+http-request ^https?:\/\/gs-loc(-cn)?\.apple\.com\/wloc-settings\/save script-path=https://cdn.jsdelivr.net/gh/admin0330/wloc-locator@main/dist/wloc-settings.js, timeout=10, tag=WLOC Settings
 
 [MITM]
 hostname = gs-loc.apple.com, gs-loc-cn.apple.com
